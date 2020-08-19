@@ -1,0 +1,8 @@
+Proyecto:
+sitio web orientado al comercio electrónico de ropa.
+
+Se utilizó como estructura básica de html y css, un template gratuito de bootstrap, descargado del sitio oficial.
+Se realizaron modificaciones adaptando el template de bootstrap, al sitio deseado como proyecto final.
+
+Toda la información que tiene la página de inicio, es estática, la idea es ir dándole comportamiento con lo que vayamos viendo durante el curso.
+La idea, mas adelante, agregarle además otras secciones al sitio web.
