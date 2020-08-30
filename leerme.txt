@@ -4,5 +4,33 @@ sitio web orientado al comercio electrónico de ropa.
 Se utilizó como estructura básica de html y css, un template gratuito de bootstrap, descargado del sitio oficial.
 Se realizaron modificaciones adaptando el template de bootstrap, al sitio deseado como proyecto final.
 
-Toda la información que tiene la página de inicio, es estática, la idea es ir dándole comportamiento con lo que vayamos viendo durante el curso.
-La idea, mas adelante, agregarle además otras secciones al sitio web.
+Para leer mas fácil el codigo, tener en cuenta:
+Todo el código JS personalizado, se encuentra dentro de js/main.js
+Todo el código CSS personalizado, se encuentra dentro de css/styles.css
+
+Para este desafio, interacuar con la estructura del DOM, se trabajo sobre:
+1. Al seleccionar cualquier producto en el home, y presionar el icono de agregar al carrito,
+se actualiza el DOM, agregando informacion del producto agregado al carrito, pudiendo ver la misma,
+al hacer hover sobre el Carrito en el menu.
+
+2. Desde el menu del Carrito, donde se listan los productos que ya se agregaron, al eliminar uno el mismo
+se elimina del DOM.
+
+3. Al seleccionar la lupa, en cada producto, para visualizar el mismo, se actualiza en el DOM, la informacion
+asociada a ese producto, en la parte del HTML del index, donde esta el modal, linea 667 aprox.
+
+4. Se comenzo a trabajar con la logica en la suma de los productos agregados al carrito, y las variantes
+al ir agregando/eliminando del carrito productos.
+
+
+La idea es agregar nuevas vistas al sitio, como por ejemplo:
+Registro de usuarios
+Inicio de sesion
+Contacto
+Checkout
+
+Tambien, utilizar tanto el local storage, como el session storage, para simular en lo posible lo que seria
+consultar alguna BD para guardar y recuperar informacion.
+
+Tener en cuenta, que mas adelante, cuando esten la lógica funcionando correctamente, se pulirán detalles 
+visuales sobre el sitio, dejando el mismo como un producto final de calidad.
