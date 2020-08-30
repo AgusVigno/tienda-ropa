@@ -62,45 +62,12 @@
 							<i class="fas fa-cart-plus"></i>Carrito
 						</a>
 						<div class="dropdown-menu cart-dropdown">
-							<!-- producto en el carrito -->
-							<div class="media">
-								<a class="pull-left" href="#">
-									<img  class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
-								</a>
-								<div class="media-body">
-									<h4 class="media-heading"><a href="#">Anteojos</a></h4>
-									<div class="cart-price">
-									<span>1 x</span>
-									<span>1.300</span>
-									</div>
-									<h5><strong>$1.300</strong></h5>
-								</div>
-								<a href="#" class="remove"><i class="far fa-times-circle"></i></a>
+							<div id="carrito-productos">
+								<!-- producto que se agregan al carrito -->
 							</div>
-							<!-- producto en el carrito -->
-							<div class="media">
-								<a class="pull-left" href="#">
-									<img  class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
-								</a>
-								<div class="media-body">
-									<h4 class="media-heading"><a href="#">Vestido</a></h4>
-									<div class="cart-price">
-									<span>1 x</span>
-									<span>1.200</span>
-									</div>
-									<h5><strong>$1.200</strong></h5>
-								</div>
-								<a href="#" class="remove"><i class="far fa-times-circle"></i></a>
+							<div id="carrito-total">
+								<!-- total a pagar y botones de compra y ver carrito -->
 							</div>
-							<!-- precio total -->
-							<div class="cart-summary">
-								<span>Total: </span>
-								<span class="total-price">$2.500</span>
-							</div>
-							<ul class="text-center cart-buttons">
-								<li><a href="#" class="btn btn-small">Ver carrito</a></li>
-								<li><a href="#" class="btn btn-small btn-solid-border">Comprar</a></li>
-							</ul>
 						</div>
 					</li>
 					<!-- buscar -->
@@ -461,19 +428,19 @@
 						<img class="img-responsive" src="images/shop/products/product-1.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
+								<li onclick="verProducto('product-1.jpg', 'Boardsport', 190)">
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="fas fa-search"></i>
 									</span>
 								</li>
 								<li><span><i class="fas fa-heart"></i></span></li>
-								<li><span><i class="fas fa-cart-plus"></i></span></li>
+								<li onclick="agregarProductoCarrito('product-1.jpg','Boardsport', 190)"><span><i class="fas fa-cart-plus"></i></span></li>
 							</ul>
                       	</div>
 					</div>
 					<div class="product-content">
-						<h4><a href="product-single.html">Reef Boardsport</a></h4>
-						<p class="price">$200</p>
+						<h4><a href="product-single.html">Boardsport</a></h4>
+						<p class="price">$190</p>
 					</div>
 				</div>
 			</div>
@@ -484,19 +451,19 @@
 						<img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
+								<li onclick="verProducto('product-2.jpg','Rainbow Shoes', 190)">
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="fas fa-search"></i>
 									</span>
 								</li>
 								<li><span><i class="fas fa-heart"></i></span></li>
-								<li><span><i class="fas fa-cart-plus"></i></span></li>
+								<li onclick="agregarProductoCarrito('product-2.jpg','Rainbow Shoes', 190)"><span><i class="fas fa-cart-plus"></i></span></li>
 							</ul>
                       	</div>
 					</div>
 					<div class="product-content">
 						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
-						<p class="price">$200</p>
+						<p class="price">$190</p>
 					</div>
 				</div>
 			</div>
@@ -507,13 +474,13 @@
 						<img class="img-responsive" src="images/shop/products/product-3.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
+								<li onclick="verProducto('product-3.jpg','Strayhorn SP', 230)">
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="fas fa-search"></i>
 									</span>
 								</li>
 								<li><span><i class="fas fa-heart"></i></span></li>
-								<li><span><i class="fas fa-cart-plus"></i></span></li>
+								<li onclick="agregarProductoCarrito('product-3.jpg','Strayhorn SP', 230)"><span><i class="fas fa-cart-plus"></i></span></li>
 							</ul>
                       	</div>
 					</div>
@@ -530,13 +497,13 @@
 						<img class="img-responsive" src="images/shop/products/product-4.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
+								<li onclick="verProducto('product-4.jpg','Nradley Mid', 200)">
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="fas fa-search"></i>
 									</span>
 								</li>
 								<li><span><i class="fas fa-heart"></i></span></li>
-								<li><span><i class="fas fa-cart-plus"></i></span></li>
+								<li onclick="agregarProductoCarrito('product-4.jpg','Nradley Mid', 200)"><span><i class="fas fa-cart-plus"></i></span></li>
 							</ul>
                       	</div>
 					</div>
@@ -553,19 +520,19 @@
 						<img class="img-responsive" src="images/shop/products/product-5.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
+								<li onclick="verProducto('product-5.jpg','Rainbow Shoes', 150)">
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="fas fa-search"></i>
 									</span>
 								</li>
 								<li><span><i class="fas fa-heart"></i></span></li>
-								<li><span><i class="fas fa-cart-plus"></i></span></li>
+								<li onclick="agregarProductoCarrito('product-5.jpg','Rainbow Shoes', 150)"><span><i class="fas fa-cart-plus"></i></span></li>
 							</ul>
                       	</div>
 					</div>
 					<div class="product-content">
 						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
-						<p class="price">$200</p>
+						<p class="price">$150</p>
 					</div>
 				</div>
 			</div>
@@ -576,19 +543,19 @@
 						<img class="img-responsive" src="images/shop/products/product-6.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
+								<li onclick="verProducto('product-6.jpg','Rainbow Shoes', 180)">
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="fas fa-search"></i>
 									</span>
 								</li>
 								<li><span><i class="fas fa-heart"></i></span></li>
-								<li><span><i class="fas fa-cart-plus"></i></span></li>
+								<li onclick="agregarProductoCarrito('product-6.jpg','Rainbow Shoes', 180)"><span><i class="fas fa-cart-plus"></i></span></li>
 							</ul>
                       	</div>
 					</div>
 					<div class="product-content">
 						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
-						<p class="price">$200</p>
+						<p class="price">$180</p>
 					</div>
 				</div>
 			</div>
@@ -600,13 +567,13 @@
 						<img class="img-responsive" src="images/shop/products/product-7.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
+								<li onclick="verProducto('product-7.jpg','Rainbow Shoes', 200)">
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="fas fa-search"></i>
 									</span>
 								</li>
 								<li><span><i class="fas fa-heart"></i></span></li>
-								<li><span><i class="fas fa-cart-plus"></i></span></li>
+								<li onclick="agregarProductoCarrito('product-7.jpg','Rainbow Shoes', 200)"><span><i class="fas fa-cart-plus"></i></span></li>
 							</ul>
                       	</div>
 					</div>
@@ -623,13 +590,13 @@
 						<img class="img-responsive" src="images/shop/products/product-8.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
+								<li onclick="verProducto('product-8.jpg','Rainbow Shoes', 200)">
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="fas fa-search"></i>
 									</span>
 								</li>
 								<li><span><i class="fas fa-heart"></i></span></li>
-								<li><span><i class="fas fa-cart-plus"></i></span></li>
+								<li onclick="agregarProductoCarrito('product-8.jpg','Rainbow Shoes', 200)"><span><i class="fas fa-cart-plus"></i></span></li>
 							</ul>
                       	</div>
 					</div>
@@ -646,13 +613,13 @@
 						<img class="img-responsive" src="images/shop/products/product-9.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
+								<li onclick="verProducto('product-9.jpg','Rainbow Shoes', 200)">
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="fas fa-search"></i>
 									</span>
 								</li>
 								<li><span><i class="fas fa-heart"></i></span></li>
-								<li><span><i class="fas fa-cart-plus"></i></span></li>
+								<li onclick="agregarProductoCarrito('product-9.jpg','Rainbow Shoes', 200)"><span><i class="fas fa-cart-plus"></i></span></li>
 							</ul>
                       	</div>
 					</div>
@@ -673,7 +640,7 @@
 							<div class="row">
 								<div class="col-md-8 col-sm-6 col-xs-12">
 									<div class="modal-image">
-										<img class="img-responsive" src="images/shop/products/modal-product.jpg" alt="product-img" />
+										<img class="img-responsive" src="images/shop/products/modal-product.jpg" alt="product-img">
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-6 col-xs-12">
