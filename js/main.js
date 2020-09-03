@@ -6,6 +6,20 @@ let total = 0;
 
 actualizarCarrito();
 
+//Agregar un evento al hacer click en el corazon de cada producto
+const megustas = document.querySelectorAll('.fa-heart');
+megustas.forEach( megusta => {
+    megusta.parentNode.addEventListener('click', () => {
+        alert("Te gusta el producto.   :)");
+    });
+});
+
+//Agregar un evento para validar que se ingreso un correo electrónico en la suscripción del newsletter
+const correo = document.querySelector('.subscription-form input');
+correo.addEventListener('blur', (e) => {
+    validarCorreo(e);
+});
+
 
 //Funciones
 //agregar un producto al carrito de compras
@@ -111,4 +125,15 @@ function carritoBotones(total){
         </ul>
     `;
     return info;
+}
+
+//validar correo utilizado expresion regular, aceptando caracteres de UTF-8.
+function validarCorreo (event){
+    let correo = event.target.value; 
+
+    if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(correo)){
+        alert("La dirección de email " + correo + " es correcta.");
+    } else {
+        alert("La dirección de email es incorrecta.");
+    }
 }
