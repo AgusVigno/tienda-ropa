@@ -22,6 +22,11 @@ asociada a ese producto, en la parte del HTML del index, donde esta el modal, li
 4. Se comenzo a trabajar con la logica en la suma de los productos agregados al carrito, y las variantes
 al ir agregando/eliminando del carrito productos.
 
+5. Respecto a los eventos, se utilizo el addEventListener en la suscripcion al newsletter, 
+validando que se ingrese un correo electrónico válido, teniendo en cuenta UTF-8
+
+6. A su vez, en cada icono de Me Gusta en los 9 productos, se utilizo el addEventListener,
+mostrando un alerta en pantalla.
 
 La idea es agregar nuevas vistas al sitio, como por ejemplo:
 Registro de usuarios
