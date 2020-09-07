@@ -53,8 +53,8 @@
 				<!-- carrito -->
 				<ul class="top-menu text-right list-inline">
 					<li class="dropdown user-nav dropdown-slide">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-							<i class="fas fa-user"></i>Login
+						<a href="vistas/login.html" class="dropdown-toggle">
+							<i class="fas fa-user"></i> Login
 						</a>
 					</li>
 					<li class="dropdown cart-nav dropdown-slide">
@@ -120,6 +120,12 @@
 	    </div>
 	</nav>
 </section>
+
+<!-- Alerta -->
+<div class="alert alert-success">
+	<h4 class="alert-heading">Correcto!</h4>
+	<p class="mb-0">El producto se agrego correctamente al carrito.</p>
+</div>
 
 <section class="main-slider">
 	<div id="home_slider_wrapper" class="rev_slider_wrapper fullscreen-container" >
@@ -419,217 +425,10 @@
 				<h2>Productos de Moda</h2>
 			</div>
 		</div>
-		<div class="row">
-			<!-- producto 1 -->
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<span class="bage">Descuento del 25%</span>
-						<img class="img-responsive" src="images/shop/products/product-1.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								<li onclick="verProducto('product-1.jpg', 'Boardsport', 190)">
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="fas fa-search"></i>
-									</span>
-								</li>
-								<li><span><i class="fas fa-heart"></i></span></li>
-								<li onclick="agregarProductoCarrito('product-1.jpg','Boardsport', 190)"><span><i class="fas fa-cart-plus"></i></span></li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Boardsport</a></h4>
-						<p class="price">$190</p>
-					</div>
-				</div>
-			</div>
-			<!-- producto 2 -->
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								<li onclick="verProducto('product-2.jpg','Rainbow Shoes', 190)">
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="fas fa-search"></i>
-									</span>
-								</li>
-								<li><span><i class="fas fa-heart"></i></span></li>
-								<li onclick="agregarProductoCarrito('product-2.jpg','Rainbow Shoes', 190)"><span><i class="fas fa-cart-plus"></i></span></li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
-						<p class="price">$190</p>
-					</div>
-				</div>
-			</div>
-			<!-- producto 3 -->
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="images/shop/products/product-3.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								<li onclick="verProducto('product-3.jpg','Strayhorn SP', 230)">
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="fas fa-search"></i>
-									</span>
-								</li>
-								<li><span><i class="fas fa-heart"></i></span></li>
-								<li onclick="agregarProductoCarrito('product-3.jpg','Strayhorn SP', 230)"><span><i class="fas fa-cart-plus"></i></span></li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Strayhorn SP</a></h4>
-						<p class="price">$230</p>
-					</div>
-				</div>
-			</div>
-			<!-- producto 4 -->
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="images/shop/products/product-4.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								<li onclick="verProducto('product-4.jpg','Nradley Mid', 200)">
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="fas fa-search"></i>
-									</span>
-								</li>
-								<li><span><i class="fas fa-heart"></i></span></li>
-								<li onclick="agregarProductoCarrito('product-4.jpg','Nradley Mid', 200)"><span><i class="fas fa-cart-plus"></i></span></li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Bradley Mid</a></h4>
-						<p class="price">$200</p>
-					</div>
-				</div>
-			</div>
-			<!-- producto 5 -->
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="images/shop/products/product-5.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								<li onclick="verProducto('product-5.jpg','Rainbow Shoes', 150)">
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="fas fa-search"></i>
-									</span>
-								</li>
-								<li><span><i class="fas fa-heart"></i></span></li>
-								<li onclick="agregarProductoCarrito('product-5.jpg','Rainbow Shoes', 150)"><span><i class="fas fa-cart-plus"></i></span></li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
-						<p class="price">$150</p>
-					</div>
-				</div>
-			</div>
-			<!-- producto 6 -->
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="images/shop/products/product-6.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								<li onclick="verProducto('product-6.jpg','Rainbow Shoes', 180)">
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="fas fa-search"></i>
-									</span>
-								</li>
-								<li><span><i class="fas fa-heart"></i></span></li>
-								<li onclick="agregarProductoCarrito('product-6.jpg','Rainbow Shoes', 180)"><span><i class="fas fa-cart-plus"></i></span></li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
-						<p class="price">$180</p>
-					</div>
-				</div>
-			</div>
-			<!-- producto 7 -->
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<span class="bage">Descuento del 25%</span>
-						<img class="img-responsive" src="images/shop/products/product-7.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								<li onclick="verProducto('product-7.jpg','Rainbow Shoes', 200)">
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="fas fa-search"></i>
-									</span>
-								</li>
-								<li><span><i class="fas fa-heart"></i></span></li>
-								<li onclick="agregarProductoCarrito('product-7.jpg','Rainbow Shoes', 200)"><span><i class="fas fa-cart-plus"></i></span></li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
-						<p class="price">$200</p>
-					</div>
-				</div>
-			</div>
-			<!-- producto 8 -->
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="images/shop/products/product-8.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								<li onclick="verProducto('product-8.jpg','Rainbow Shoes', 200)">
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="fas fa-search"></i>
-									</span>
-								</li>
-								<li><span><i class="fas fa-heart"></i></span></li>
-								<li onclick="agregarProductoCarrito('product-8.jpg','Rainbow Shoes', 200)"><span><i class="fas fa-cart-plus"></i></span></li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
-						<p class="price">$200</p>
-					</div>
-				</div>
-			</div>
-			<!-- producto 9 -->
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="images/shop/products/product-9.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								<li onclick="verProducto('product-9.jpg','Rainbow Shoes', 200)">
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="fas fa-search"></i>
-									</span>
-								</li>
-								<li><span><i class="fas fa-heart"></i></span></li>
-								<li onclick="agregarProductoCarrito('product-9.jpg','Rainbow Shoes', 200)"><span><i class="fas fa-cart-plus"></i></span></li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
-						<p class="price">$200</p>
-					</div>
-				</div>
-			</div>
-			<!-- Modal  -->
+		<div class="row productos">
+			<!-- Productos inyectados por JS -->
+
+			<!-- Modal Visualización -->
 			<div class="modal product-modal fade" id="product-modal">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<i class="tf-ion-close"></i>
@@ -674,13 +473,12 @@
 				</div>
 				<div class="col-lg-6 col-md-offset-3">
 				    <div class="input-group subscription-form">
-				      <input type="email" class="form-control" placeholder="Ingresar correo electrónico...">
-				      <span class="input-group-btn">
-				        <button class="btn btn-main" id="newsletter" type="button">Suscribirme</button>
-				      </span>
+						<input type="email" class="form-control" placeholder="Ingresar correo electrónico...">
+						<span class="input-group-btn">
+							<button class="btn btn-main" id="newsletter" type="button">Suscribirme</button>
+						</span>
 				    </div>
-			  </div>
-
+			  	</div>
 			</div>
 		</div> 		
 	</div>   	
@@ -739,6 +537,7 @@
     <script src="plugins/revolution-slider.js"></script>
 
 	<!-- Main JS -->
+	<script src="js/productos.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
