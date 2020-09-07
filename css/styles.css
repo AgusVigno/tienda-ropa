@@ -11,12 +11,17 @@
 .copyright-text{
     font-size: 14px;
 }
-.alert{
+.alert,
+.alerta{
     display: none;
 }
-.alert .alert-heading{
+.alert .alert-heading,
+.alerta .alert-heading{
     text-align: center;
     font-size: 30px;
+}
+.alerta p{
+    text-align: center;
 }
 .show{
     position: sticky;

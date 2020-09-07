@@ -170,11 +170,7 @@ function calcularTotal(){
 function validarCorreoEvento (event){
     let correo = event.target.value; 
 
-    if (validarCorreo(correo)){
-        alert("La dirección de email " + correo + " es correcta.");
-    } else {
-        alert("La dirección de email es incorrecta.");
-    }
+    validarCorreo(correo) ? mostrarAlertaCorreoExitoso() : mostrarAlertaCorreoError();
 }
 
 //Mostrar alerta cuando se agrega un producto al carrito
@@ -261,25 +257,6 @@ function validarUsuario(usuario){
     return true;
 }
 
-//validacion de correo electrónico utilizando una expresión regular contemplando UTF-8.
-function validarCorreo(correo){
-    return(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(correo));
-}
-
-//Mostrar alerta cuando se agrega un producto al carrito
-function mostrarAlertaErrorRegistro(){
-    document.querySelector('.alert').classList.add('show');
-    setTimeout(function () {
-        document.querySelector('.alert').classList.remove('show');
-    }, 2000);
-}
-function mostrarAlertaErrorLogin(){
-    document.querySelector('.alert').classList.add('show');
-    setTimeout(function () {
-        document.querySelector('.alert').classList.remove('show');
-    }, 2000);
-}
-
 function onSubmitLogin(){
     let username = document.querySelector('#username').value;
     let password = document.querySelector('#password').value;
@@ -288,4 +265,35 @@ function onSubmitLogin(){
     user && user.password == password ? 
         window.location.href = '../index.html' : 
         mostrarAlertaErrorLogin();
+}
+
+//validacion de correo electrónico utilizando una expresión regular contemplando UTF-8.
+function validarCorreo(correo){
+    return(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(correo));
+}
+
+//Mostrar alertas
+function mostrarAlertaErrorRegistro(){
+    document.querySelector('.alert').classList.add('show');
+    setTimeout(function () {
+        document.querySelector('.alert').classList.remove('show');
+    }, 2000);
+}
+function mostrarAlertaCorreoExitoso(){
+    document.querySelectorAll('.alerta')[0].classList.add('show');
+    setTimeout(function () {
+        document.querySelectorAll('.alerta')[0].classList.remove('show');
+    }, 2000);
+}
+function mostrarAlertaCorreoError(){
+    document.querySelectorAll('.alerta')[1].classList.add('show');
+    setTimeout(function () {
+        document.querySelectorAll('.alerta')[1].classList.remove('show');
+    }, 2000);
+}
+function mostrarAlertaErrorLogin(){
+    document.querySelector('.alerta alert-danger').classList.add('show');
+    setTimeout(function () {
+        document.querySelector('.alerta alert-danger').classList.remove('show');
+    }, 2000);
 }
