@@ -8,8 +8,7 @@ let productos = productosBD;
 let carrito = document.querySelector('#carrito-productos');
 let carrito_productos = [];
 
-if(pagina_actual.includes('index.html') || !pagina_actual.includes('*.html')){
-    console.log('index.html');
+if(pagina_actual.includes('index.html') || !pagina_actual.includes('.html')){
     //se cargan los productos en el home
     cargarProductos();
 
@@ -18,18 +17,14 @@ if(pagina_actual.includes('index.html') || !pagina_actual.includes('*.html')){
 
     //Eventos
     //Agregar un evento al hacer click en el corazon de cada producto
-    const megustas = document.querySelectorAll('.fa-heart');
-    megustas.forEach( megusta => {
-        megusta.parentNode.addEventListener('click', () => {
-            alert("Te gusta el producto.   :)");
-        });
+    const $megustas = $('.fa-heart');
+    $megustas.each(function (){ 
+        $(this).click(() => alert("Te gusta el producto.   :)")) 
     });
 
     //Agregar un evento para validar que se ingreso un correo electrónico en la suscripción del newsletter
-    const correo = document.querySelector('.subscription-form input');
-    correo.addEventListener('blur', (e) => {
-        validarCorreoEvento(e);
-    });
+    const $suscripcion = $('.subscription-form input');
+    $suscripcion.blur((e) => validarCorreoEvento(e) );
 
 }else if(pagina_actual.includes('registro.html')){
     let usuario = {
