@@ -8,7 +8,8 @@ let productos = productosBD;
 let carrito = document.querySelector('#carrito-productos');
 let carrito_productos = [];
 
-if(pagina_actual.includes('index.html')){
+if(pagina_actual.includes('index.html') || !pagina_actual.includes('*.html')){
+    console.log('index.html');
     //se cargan los productos en el home
     cargarProductos();
 
