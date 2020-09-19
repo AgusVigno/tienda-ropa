@@ -123,7 +123,6 @@ function verProducto(productoId){
         url: apiURL
     }).done((data) => {
         let producto = data.find(prod => prod.id === productoId);
-        console.log(producto);
         $('.modal-image img').attr("src", `${producto.imagen}`);
         $('.product-title').text(producto.nombre);
         $('.product-price').text(`$${producto.precio}`);
