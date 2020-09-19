@@ -7,7 +7,7 @@ Se realizaron modificaciones adaptando el template de bootstrap, al sitio desead
 Para leer mas fácil el codigo, tener en cuenta:
 Todo el código JS personalizado, se encuentra dentro de js/main.js
 Todo el código CSS personalizado, se encuentra dentro de css/styles.css
-Listado de productos, en objetivos literales, se encuentran dentro de js/productos.js
+Listado de productos, en formato JSON, se encuentran dentro de js/productos.json
 
 Para esta entrega, se trabajo sobre:
 1. Al seleccionar cualquier producto en el home, y presionar el icono de agregar al carrito,
@@ -20,18 +20,13 @@ se elimina del DOM. (actualizando el total y quitandolo del carrito de productos
 3. Al seleccionar la lupa, en cada producto, para visualizar el mismo, se actualiza en el DOM, la informacion
 asociada a ese producto, en la parte del HTML del index, donde esta el modal, linea 431 aprox.
 
-4. Se cargan los productos que se encuentran en el archivo productos.js, y se crean elementos HTML haciendo
+4. Se cargan los productos que se encuentran en el archivo productos.json, y se crean elementos HTML haciendo
 las inserciones en el DOM, iterando por cada producto del arreglo.
 
-5. Respecto a los eventos, se utilizo el addEventListener en la suscripcion al newsletter, 
+5. Respecto a los eventos, se usaron en la suscripcion al newsletter, 
 validando que se ingrese un correo electrónico válido, teniendo en cuenta expresion regular en UTF-8
 
-6. A su vez, en cada icono de Me Gusta en los 9 productos, se utilizo el addEventListener,
-mostrando un alerta en pantalla.
+6. A su vez, en cada icono de Me Gusta en los 9 productos, mostrando un alerta en pantalla.
 
 7. Se utilizo el localStorage, como asi tambien el uso de JSON, para guardar el correo y contraseña del usuario
 cuando se crean una cuenta, para poder recuperarlo y hacer la validacion en el login.   
-
-La idea es agregar nuevas vistas al sitio, como por ejemplo:
-Contacto
-Checkout

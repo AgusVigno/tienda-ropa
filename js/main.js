@@ -1,8 +1,11 @@
+//tiempo para alertas
+const TIEMPO = 2000; //2 segundos
+
 //me guardo la pagina actual html
 let pagina_actual = window.location.href;
 
-//recupero el listado de productos de la "BD"
-let productos = productosBD;
+//recupero el listado de productos de la "BD" por medio de AJAX, formato JSON
+const apiURL = 'http://127.0.0.1:5502/js/productos.json';
 
 //recupero el carrito de productos
 let carrito = document.querySelector('#carrito-productos');
@@ -10,17 +13,18 @@ let carrito_productos = [];
 
 if(pagina_actual.includes('index.html') || !pagina_actual.includes('.html')){
     //se cargan los productos en el home
-    cargarProductos();
+    getProductos();
 
     //se inicializa el carrito de compras
     actualizarCarrito();
 
-    //Eventos
+    //Eventos  
     //Agregar un evento al hacer click en el corazon de cada producto
-    const $megustas = $('.fa-heart');
-    $megustas.each(function (){ 
-        $(this).click(() => alert("Te gusta el producto.   :)")) 
-    });
+    $(document).ready(function(){
+        $('.fa-heart').click(function(){
+            alert("Te gusta el producto.   :)");
+        })
+    });  
 
     //Agregar un evento para validar que se ingreso un correo electrónico en la suscripción del newsletter
     const $suscripcion = $('.subscription-form input');
@@ -28,11 +32,11 @@ if(pagina_actual.includes('index.html') || !pagina_actual.includes('.html')){
 
 }else if(pagina_actual.includes('registro.html')){
     let usuario = {
-        "nombre": document.querySelector('#nombre'),
-        "apellido": document.querySelector('#apellido'),
-        "email": document.querySelector('#email'),
-        "password": document.querySelector('#password'),
-        "username": document.querySelector('#username'),
+        "nombre": $('#nombre').val(),
+        "apellido": $('#apellido').val(),
+        "email": $('#email').val(),
+        "password": $('#password').val(),
+        "username": $('#username').val(),
     }
     if(validarUsuario(usuario)){
         //guardar en localStorage
@@ -43,27 +47,35 @@ if(pagina_actual.includes('index.html') || !pagina_actual.includes('.html')){
 //Funciones
 //agregar un producto al carrito de compras
 function agregarProductoCarrito(productoId){
-    //buscar producto en el arreglo de productos
-    let producto = productos.filter(prod => prod.id === productoId)[0];
-
-    if(producto){ //si existe el producto seleccionado desde el home
-        //crear producto nuevo
-        let productoHtml = crearProductoCarrito(producto);
-    
-        //agrego el producto al carrito (por ahora solo el precio, mas adelante el objeto producto)
-        carrito_productos.push(producto);
-    
-        //mostrar alerta
-        mostrarAlertaExitoCarrito();
-    
-        //agrego el producto al listado de productos en el carrito
-        carrito.prepend(productoHtml);
-    
-        //actualizo el listado a mostrar en el carrito
-        actualizarCarrito();   
-    }else{
-        alert('Producto no encontado');
-    }
+    $.ajax({
+        method: "GET",
+        contentType: "application/json",
+        dataType: 'json',
+        url: apiURL
+    }).done((data) => {
+        //buscar producto en el arreglo de productos
+        let producto = data.find(prod => prod.id === productoId);
+        if(producto){ //si existe el producto seleccionado desde el home
+            //crear producto nuevo
+            let productoHtml = crearProductoCarrito(producto);
+        
+            //agrego el producto al carrito (por ahora solo el precio, mas adelante el objeto producto)
+            carrito_productos.push(producto);
+        
+            //mostrar alerta
+            mostrarAlertaExitoCarrito();
+        
+            //agrego el producto al listado de productos en el carrito
+            carrito.prepend(productoHtml);
+        
+            //actualizo el listado a mostrar en el carrito
+            actualizarCarrito();   
+        }else{
+            alert('Producto no encontado');
+        }
+    }).fail((error) => {
+        console.log(error);
+        });
 }
 
 function crearProductoCarrito(prod){
@@ -104,10 +116,20 @@ function eliminarProductoCarrito(event, productoId){
 
 //visualizar un producto en el modal, al hacer click en la lupa sobre cada producto.
 function verProducto(productoId){
-    let producto = productos.filter(prod => prod.id === productoId)[0];
-    document.querySelector('.modal-image img').setAttribute("src", `${producto.imagen}`);
-    document.querySelector('.product-title').textContent = producto.nombre;
-    document.querySelector('.product-price').textContent = `$${producto.precio}`;
+    $.ajax({
+        method: "GET",
+        contentType: "application/json",
+        dataType: 'json',
+        url: apiURL
+    }).done((data) => {
+        let producto = data.find(prod => prod.id === productoId);
+        console.log(producto);
+        $('.modal-image img').attr("src", `${producto.imagen}`);
+        $('.product-title').text(producto.nombre);
+        $('.product-price').text(`$${producto.precio}`);
+    }).fail((error) => {
+        console.log(error);
+    });
 }
 
 function actualizarCarrito(){
@@ -171,20 +193,10 @@ function validarCorreoEvento (event){
 
 //Mostrar alerta cuando se agrega un producto al carrito
 function mostrarAlertaExitoCarrito(){
-    document.querySelector('.alert').classList.add('show');
+    $('.alert').addClass('show');
     setTimeout(function () {
-        document.querySelector('.alert').classList.remove('show');
-    }, 2000);
-}
-
-//Cargar productos
-function cargarProductos() {
-    let productos = document.querySelector('.productos');
-
-    productosBD.forEach( producto => {
-        let productoHtml = crearProducto(producto);
-        productos.appendChild(productoHtml);
-    })
+        $('.alert').removeClass('show');
+    }, TIEMPO);
 }
 
 //Crear un producto nuevo
@@ -218,15 +230,24 @@ function crearProducto(producto){
     return productoHtml;
 }
 
+//Cargar Productos
+function cargarProductos(productosBD){
+    let productos = document.querySelector('.productos');
+    productosBD.forEach( producto => {
+        let productoHtml = crearProducto(producto);
+        productos.appendChild(productoHtml);
+    });
+}
+
 //Registro de un nuevo usuario
 function onSubmitForm(event){
     event.preventDefault();
     let usuario = {
-        "nombre": document.querySelector('#nombre').value,
-        "apellido": document.querySelector('#apellido').value,
-        "email": document.querySelector('#email').value,
-        "username": document.querySelector('#username').value,
-        "password": document.querySelector('#password').value,
+        "nombre": $('#nombre').val(),
+        "apellido": $('#apellido').val(),
+        "email": $('#email').val(),
+        "username": $('#username').val(),
+        "password": $('#password').val(),
     }
     if(validarUsuario(usuario)){
         //guardar en localStorage
@@ -253,11 +274,11 @@ function validarUsuario(usuario){
     return true;
 }
 
-function onSubmitLogin(){
-    let username = document.querySelector('#username').value;
-    let password = document.querySelector('#password').value;
+function onSubmitLogin(event){
+    event.preventDefault();
+    let username = $('#username').val();
+    let password = $('#password').val();
     let user = JSON.parse(localStorage.getItem(username));
-
     user && user.password == password ? 
         window.location.href = '../index.html' : 
         mostrarAlertaErrorLogin();
@@ -270,26 +291,39 @@ function validarCorreo(correo){
 
 //Mostrar alertas
 function mostrarAlertaErrorRegistro(){
-    document.querySelector('.alert').classList.add('show');
+   $('.alert').addClass('show');
     setTimeout(function () {
-        document.querySelector('.alert').classList.remove('show');
-    }, 2000);
+       $('.alert').removeClass('show');
+    }, TIEMPO);
 }
 function mostrarAlertaCorreoExitoso(){
-    document.querySelectorAll('.alerta')[0].classList.add('show');
+    $('.alerta-success').addClass('show');
     setTimeout(function () {
-        document.querySelectorAll('.alerta')[0].classList.remove('show');
-    }, 2000);
+        $('.alerta-success').removeClass('show');
+    }, TIEMPO);
 }
 function mostrarAlertaCorreoError(){
-    document.querySelectorAll('.alerta')[1].classList.add('show');
+    $('.alerta-error').addClass('show');
     setTimeout(function () {
-        document.querySelectorAll('.alerta')[1].classList.remove('show');
-    }, 2000);
+        $('.alerta-error').removeClass('show');
+    }, TIEMPO);
 }
 function mostrarAlertaErrorLogin(){
-    document.querySelector('.alerta alert-danger').classList.add('show');
+    $('.alerta.alert-danger').addClass('show');
     setTimeout(function () {
-        document.querySelector('.alerta alert-danger').classList.remove('show');
-    }, 2000);
+        $('.alerta.alert-danger').removeClass('show');
+    }, TIEMPO);
+}
+
+function getProductos(){
+    $.ajax({
+        method: "GET",
+        contentType: "application/json",
+        dataType: 'json',
+        url: apiURL
+    }).done((data) => {
+        cargarProductos(data);
+    }).fail((error) => {
+        console.log(error);
+    });
 }

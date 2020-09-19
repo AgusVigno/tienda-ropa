@@ -1,4 +1,4 @@
-const productosBD = [
+[
     {
         "id": 1,
         "nombre": "Remera Floreada",
@@ -36,13 +36,13 @@ const productosBD = [
         "imagen": "images/shop/products/product-6.jpg"
     },
     {
-        "id": 1,
+        "id": 7,
         "nombre": "Bufanda tailandesa",
         "precio": 100,
         "imagen": "images/shop/products/product-7.jpg"
     },
     {
-        "id": 1,
+        "id": 8,
         "nombre": "Remera azul",
         "precio": 250,
         "imagen": "images/shop/products/product-8.jpg"
