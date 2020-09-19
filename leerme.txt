@@ -30,3 +30,7 @@ validando que se ingrese un correo electrónico válido, teniendo en cuenta expr
 
 7. Se utilizo el localStorage, como asi tambien el uso de JSON, para guardar el correo y contraseña del usuario
 cuando se crean una cuenta, para poder recuperarlo y hacer la validacion en el login.   
+
+8. Se reemplazo el codigo JS por jQuery, y se siguieron las recomendaciones de la entrega anterior.
+
+9. Se realizo el llamado por AJAX, utilizando el archivo productos.json, simulando una API.
