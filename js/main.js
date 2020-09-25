@@ -5,7 +5,7 @@ const TIEMPO = 2000; //2 segundos
 let pagina_actual = window.location.href;
 
 //recupero el listado de productos de la "BD" por medio de AJAX, formato JSON
-const apiURL = 'http://127.0.0.1:5502/js/productos.json';
+const apiURL = './js/productos.json';
 
 //recupero el carrito de productos
 let carrito = document.querySelector('#carrito-productos');
