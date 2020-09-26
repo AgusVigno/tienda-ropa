@@ -13,7 +13,7 @@ let carrito_productos = [];
 
 if(pagina_actual.includes('index.html') || !pagina_actual.includes('.html')){
     //se cargan los productos en el home
-    getProductos();
+    const productos = getProductos();
 
     //se inicializa el carrito de compras
     actualizarCarrito();
@@ -47,35 +47,26 @@ if(pagina_actual.includes('index.html') || !pagina_actual.includes('.html')){
 //Funciones
 //agregar un producto al carrito de compras
 function agregarProductoCarrito(productoId){
-    $.ajax({
-        method: "GET",
-        contentType: "application/json",
-        dataType: 'json',
-        url: apiURL
-    }).done((data) => {
-        //buscar producto en el arreglo de productos
-        let producto = data.find(prod => prod.id === productoId);
-        if(producto){ //si existe el producto seleccionado desde el home
-            //crear producto nuevo
-            let productoHtml = crearProductoCarrito(producto);
-        
-            //agrego el producto al carrito (por ahora solo el precio, mas adelante el objeto producto)
-            carrito_productos.push(producto);
-        
-            //mostrar alerta
-            mostrarAlertaExitoCarrito();
-        
-            //agrego el producto al listado de productos en el carrito
-            carrito.prepend(productoHtml);
-        
-            //actualizo el listado a mostrar en el carrito
-            actualizarCarrito();   
-        }else{
-            alert('Producto no encontado');
-        }
-    }).fail((error) => {
-        console.log(error);
-        });
+    //buscar producto en el arreglo de productos
+    let producto = productos.find(prod => prod.id === productoId);
+    if(producto){ //si existe el producto seleccionado desde el home
+        //crear producto nuevo
+        let productoHtml = crearProductoCarrito(producto);
+    
+        //agrego el producto al carrito (por ahora solo el precio, mas adelante el objeto producto)
+        carrito_productos.push(producto);
+    
+        //mostrar alerta
+        mostrarAlertaExitoCarrito();
+    
+        //agrego el producto al listado de productos en el carrito
+        carrito.prepend(productoHtml);
+    
+        //actualizo el listado a mostrar en el carrito
+        actualizarCarrito();   
+    }else{
+        alert('Producto no encontado');
+    }
 }
 
 function crearProductoCarrito(prod){
@@ -116,23 +107,15 @@ function eliminarProductoCarrito(event, productoId){
 
 //visualizar un producto en el modal, al hacer click en la lupa sobre cada producto.
 function verProducto(productoId){
-    $.ajax({
-        method: "GET",
-        contentType: "application/json",
-        dataType: 'json',
-        url: apiURL
-    }).done((data) => {
-        let producto = data.find(prod => prod.id === productoId);
-        $('.modal-image img').attr("src", `${producto.imagen}`);
-        $('.product-title').text(producto.nombre);
-        $('.product-price').text(`$${producto.precio}`);
-    }).fail((error) => {
-        console.log(error);
-    });
+    let producto = productos.find(prod => prod.id === productoId);
+    $('.modal-image img').attr("src", `${producto.imagen}`);
+    $('.product-title').text(producto.nombre);
+    $('.product-price').text(`$${producto.precio}`);
 }
 
 function actualizarCarrito(){
     let total = calcularTotal();
+    console.log(total);
     if(total === 0){
         let texto = document.createElement('h4');
         texto.setAttribute("id", "sin-productos");
@@ -144,6 +127,7 @@ function actualizarCarrito(){
             total.parentNode.removeChild(total);
         }
     }else if(carrito_productos.length === 1 && !document.querySelector('#carrito-total')){
+        console.log('entra:',!document.querySelector('#carrito-total'));
         //elimino mensaje que no hay productos agregados
         let texto = document.querySelector('#sin-productos');
         if(texto){
@@ -154,7 +138,8 @@ function actualizarCarrito(){
         let botones = carritoBotones(total);
         carrito.appendChild(botones);
     }else{
-        //actulizo el precio total
+        console.log('else: ', document.querySelector('.total-price'));
+        //actualizo el precio total
         document.querySelector('.total-price').textContent = total;
     }
 }
@@ -230,11 +215,11 @@ function crearProducto(producto){
 }
 
 //Cargar Productos
-function cargarProductos(productosBD){
-    let productos = document.querySelector('.productos');
-    productosBD.forEach( producto => {
+function cargarProductos(productos){
+    let productosHtml = document.querySelector('.productos');
+    productos.forEach( producto => {
         let productoHtml = crearProducto(producto);
-        productos.appendChild(productoHtml);
+        productosHtml.appendChild(productoHtml);
     });
 }
 
@@ -321,6 +306,7 @@ function getProductos(){
         dataType: 'json',
         url: apiURL
     }).done((data) => {
+        productos = data;
         cargarProductos(data);
     }).fail((error) => {
         console.log(error);
