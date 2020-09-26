@@ -115,7 +115,6 @@ function verProducto(productoId){
 
 function actualizarCarrito(){
     let total = calcularTotal();
-    console.log(total);
     if(total === 0){
         let texto = document.createElement('h4');
         texto.setAttribute("id", "sin-productos");
@@ -127,7 +126,6 @@ function actualizarCarrito(){
             total.parentNode.removeChild(total);
         }
     }else if(carrito_productos.length === 1 && !document.querySelector('#carrito-total')){
-        console.log('entra:',!document.querySelector('#carrito-total'));
         //elimino mensaje que no hay productos agregados
         let texto = document.querySelector('#sin-productos');
         if(texto){
@@ -138,7 +136,6 @@ function actualizarCarrito(){
         let botones = carritoBotones(total);
         carrito.appendChild(botones);
     }else{
-        console.log('else: ', document.querySelector('.total-price'));
         //actualizo el precio total
         document.querySelector('.total-price').textContent = total;
     }
